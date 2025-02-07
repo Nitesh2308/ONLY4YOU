@@ -264,7 +264,7 @@
             function showQuestion(index) {
                 questionsDiv.innerHTML = `
                     <p style="font-size: 1.8rem">${messages[index]}</p>
-                    <button onclick="nextQuestion()">Yes! 💖</button>
+                    <button onclick="nextQuestion()">Haan! 💖</button>
                     <button class="trickButton" onclick="playTrick()">Nah... 👀</button>
                 `;
             }
@@ -283,7 +283,7 @@
                 
                 for(let i = 0; i < 3; i++) {
                     const newYesButton = document.createElement('button');
-                    newYesButton.innerHTML = 'Yes! 💖';
+                    newYesButton.innerHTML = 'Haan! 💖';
                     newYesButton.style.position = 'absolute';
                     newYesButton.style.left = Math.random() * 80 + '%';
                     newYesButton.style.top = Math.random() * 80 + '%';
