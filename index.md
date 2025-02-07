@@ -1,4 +1,311 @@
----
-title: Welcome to my blog
----
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Magic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #ff69b4;
+            --red: #ff1a1a;
+            --gold: #ffd700;
+            --shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+        }
+
+        body {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4, #a18cd1);
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff3860" d="M12 4.595c-2.594-3.397-8-3.497-8 2.399 0 3.397 3.399 7.197 8 11.597 4.601-4.4 8-8.2 8-11.597 0-5.896-5.406-5.796-8-2.399z"/></svg>'), auto;
+        }
+
+        .heart, .petal {
+            position: absolute;
+            pointer-events: none;
+            animation: float linear infinite;
+        }
+
+        .heart {
+            width: 30px;
+            height: 30px;
+            background: var(--red);
+            clip-path: path("M12 4.419c-2.763-3.694-8-3.894-8 2.999 0 3.694 3.499 7.894 8 12.894 4.501-5 8-9.2 8-12.894 0-6.893-5.237-6.693-8-2.999z");
+            animation-duration: 8s;
+            opacity: 0.9;
+        }
+
+        .petal {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #fff0f5, #ffb6c1);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            animation-duration: 10s;
+            opacity: 0.7;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: sparkle 0.5s linear;
+        }
+
+        @keyframes sparkle {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(3); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1);
+            box-shadow: 0 0 50px rgba(255, 105, 180, 0.7);
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: var(--red);
+            text-shadow: 0 0 15px rgba(255, 26, 26, 0.3);
+            margin: 0 0 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        #clickButton {
+            padding: 20px 40px;
+            font-size: 2rem;
+            background: linear-gradient(45deg, var(--red), var(--pink));
+            border: 2px solid white;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        #clickButton:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.4);
+        }
+
+        .note {
+            font-size: 2rem;
+            color: #8b0000;
+            line-height: 1.6;
+            transform: rotate(-2deg);
+            margin: 20px 0;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .questions {
+            background: linear-gradient(45deg, #fff0f5, #ffe4e1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            animation: slideIn 1s ease;
+            position: relative;
+            min-height: 200px;
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .questions button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+            position: relative;
+        }
+
+        .questions button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #FF5757, #FF7B7B);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .trickButton {
+            background: linear-gradient(45deg, #ff1a1a, #ff69b4);
+            color: white;
+            z-index: 1000;
+        }
+
+        .final-animation {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle, #ff69b4, #ff1493);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            animation: zoomIn 1s ease;
+        }
+
+        @keyframes zoomIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .final-animation h1 {
+            font-size: 6rem;
+            color: white;
+            animation: pulse 1s infinite;
+        }
+
+        .final-animation p {
+            font-size: 2.5rem;
+            color: gold;
+            margin-top: 20px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💘 My Dearest Valentine 💘</h1>
+        <button id="clickButton">Unlock My Heart ➔</button>
+        <div class="note hidden" id="note">Every moment with you feels like a sweet forever...</div>
+        <div class="questions hidden" id="questions"></div>
+    </div>
+
+    <script>
+        let yesButtonCount = 0;
+
+        function createFloatingElement(type) {
+            const element = document.createElement('div');
+            element.classList.add(type);
+            element.style.left = `${Math.random() * 100}vw`;
+            element.style.animationDuration = `${Math.random() * 4 + 4}s`;
+            document.body.appendChild(element);
+            setTimeout(() => element.remove(), 10000);
+        }
+
+        setInterval(() => {
+            createFloatingElement(Math.random() > 0.5 ? 'heart' : 'petal');
+        }, 300);
+
+        document.addEventListener('mousemove', (e) => {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('sparkle');
+            sparkle.style.left = `${e.pageX - 4}px`;
+            sparkle.style.top = `${e.pageY - 4}px`;
+            document.body.appendChild(sparkle);
+            setTimeout(() => sparkle.remove(), 500);
+        });
+
+        const messages = [
+            "Toh Madam shuru kare thore sawal jawab? ❤️",
+            "Chal bataa jaldi se, Haan k Haan? ❤️",
+            "Ab bata tu JALKUKRI hai ya nhi? 😂",
+            "Saato Janam k liye book kar lu nah tujhe? 👀"
+        ];
+
+        let currentStep = 0;
+
+        document.getElementById('clickButton').addEventListener('click', function() {
+            this.classList.add('hidden');
+            document.getElementById('note').classList.remove('hidden');
+            setTimeout(() => startQuestions(), 2000);
+        });
+
+        function startQuestions() {
+            const questionsDiv = document.getElementById('questions');
+            questionsDiv.classList.remove('hidden');
+
+            function showQuestion(index) {
+                questionsDiv.innerHTML = `
+                    <p style="font-size: 1.8rem">${messages[index]}</p>
+                    <button onclick="nextQuestion()">Yes! 💖</button>
+                    <button class="trickButton" onclick="playTrick()">Hmm... 🤔</button>
+                `;
+            }
+
+            window.nextQuestion = () => {
+                if (currentStep < messages.length - 1) {
+                    currentStep++;
+                    showQuestion(currentStep);
+                } else {
+                    finalAnimation();
+                }
+            };
+
+            window.playTrick = () => {
+                const questionsDiv = document.getElementById('questions');
+                
+                for(let i=0; i<3; i++) {
+                    const newYesButton = document.createElement('button');
+                    newYesButton.innerHTML = 'Yes! 💖';
+                    newYesButton.style.position = 'absolute';
+                    newYesButton.style.left = Math.random() * 80 + '%';
+                    newYesButton.style.top = Math.random() * 80 + '%';
+                    newYesButton.style.zIndex = 1000 + yesButtonCount;
+                    newYesButton.onclick = nextQuestion;
+                    
+                    questionsDiv.appendChild(newYesButton);
+                    yesButtonCount++;
+                }
+
+                if(yesButtonCount >= 6) {
+                    document.querySelector('.trickButton').style.display = 'none';
+                }
+            };
+
+            showQuestion(0);
+        }
+
+        function finalAnimation() {
+            document.body.innerHTML = `
+                <div class="final-animation">
+                    <h1>YES! 💍</h1>
+                    <p>You've stolen my heart forever! 💘</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
