@@ -194,9 +194,10 @@
         }
 
         .final-animation p {
-            font-size: 2.5rem;
+            font-size: 1.8rem; /* Reduced font size */
             color: gold;
             margin-top: 20px;
+            padding: 0 20px; /* Added padding for better readability */
         }
 
         .hidden {
@@ -276,7 +277,7 @@
             window.playTrick = () => {
                 const questionsDiv = document.getElementById('questions');
                 
-                for(let i=0; i<3; i++) {
+                for(let i = 0; i < 3; i++) {
                     const newYesButton = document.createElement('button');
                     newYesButton.innerHTML = 'Yes! 💖';
                     newYesButton.style.position = 'absolute';
@@ -300,7 +301,7 @@
         function finalAnimation() {
             document.body.innerHTML = `
                 <div class="final-animation">
-                    <h3>Meri Mahek 🫶🏻</h3>
+                    <h1>Meri Mahek 🫶🏻</h1>
                     <p>Hloo pata nhi mai yeh kab bhej raha hu tujhe so Gd Morninggg/Gd Afternoon/Gd Evening... Ik tu soch rahi hogii ki yeh larka kuch jyadaa nhi kar raha kuch jyada pyaar nhi dikha rahaa par sach batau toh mai tujhse isse bhi jyadaa pyaar karta huu... <br>
                     Haa ik maine beech mein kuch chutiyap kiye haii mai unka justification nhi dungaa but ik u trust me... so please trust me nd say yes... Mai tujhe wada karta hu tujhe kabhi sad nhi hone dungaa humesha tujhe khush rakhungaa tujhe pyaare pyaare gifts dungaa(haa haa jab mujhe jab lag jayegi uske baad hi firse datt thori khana hai hume)<br>
                     tera puraa khayal rakhungaa aur tere liye engineering k saath saath docter ki bhi padhai kar lungaa(tu us manhus k baare soch bhi nahh liyoo)... Tu mujhe bahutt pasand hai yaar bahutt jyadaa mai tere liye kuch bhi kar sakta huu pata hai bahut logo ne bola hogaa tujhe aise proposals bhi bahut aayenge tujhe aur aaye bhi kyu nahh pariyo jaisi sundar hai tuu <br>
